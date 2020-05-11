@@ -11,4 +11,15 @@ Discord Stock Bot.
 
 ### How do I get set up? ###
 
+### Environmental Variables
+
+**$NODE_ENV**
+Values: 'production' or 'development'
+
+**Discord Tokens**
+$DISCORD_DEV_TOKEN - token for development bot
+$DISCORD_PROD_TOKEN - token for actual production bot
+
+### Installation
+
 `npm install`

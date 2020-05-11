@@ -1,0 +1,17 @@
+{
+    "name": "sara",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node src/sara.js",
+        "dev": "watch 'npm run start'"
+    },
+    "devDependencies": {
+        "watch": "^1.0.2"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "cheerio": "^1.0.0-rc.3",
+        "discord.js": "^12.2.0",
+        "puppeteer": "^3.0.2"
+    }
+}

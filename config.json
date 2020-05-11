@@ -1,0 +1,12 @@
+{
+    "prefix": "!",
+    "iexSandBoxUrl": "https://sandbox.iexapis.com/stable",
+    "iexProdUrl": "https://cloud.iexapis.com/stable",
+    "timezone": "America/New_York",
+    "times": {
+        "marketOpen": "09:30:00",
+        "tenToMarketOpen": "09:20:00"
+    },
+    "holidays": [],
+    "weekdays": ["Mon", "Tue", "Wed", "Thu", "Fri"]
+}

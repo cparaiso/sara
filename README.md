@@ -11,7 +11,7 @@ Discord Stock Bot.
 
 ### How do I get set up? ###
 
-### Environmental Variables
+#### Environmental Variables
 
 **$NODE_ENV**
 Values: 'production' or 'development'

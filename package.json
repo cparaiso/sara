@@ -3,9 +3,11 @@
     "version": "1.0.0",
     "scripts": {
         "start": "node src/sara.js",
+        "test": "jest",
         "dev": "watch 'npm run start'"
     },
     "devDependencies": {
+        "jest": "^26.0.1",
         "watch": "^1.0.2"
     },
     "dependencies": {

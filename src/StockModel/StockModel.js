@@ -1,8 +1,9 @@
 const axios = require('axios');
-const {iexTestToken, iexSandBoxUrl} = require('../../config.json');
+const Utils = require('../Utils/Utils.js');
+const IEX = Utils.getIEXTokenUrlByEnvironment();
 
 exports.tickerSearch = async (ticker) => {
-    const response = await axios.get(`${iexSandBoxUrl}/stock/${ticker}/quote?token=${iexTestToken}`);
+    const response = await axios.get(`${IEX.url}/stock/${ticker}/quote?token=${IEX.token}`);
     const data = response.data;
     console.log(data);
     return {
@@ -17,7 +18,7 @@ exports.tickerSearch = async (ticker) => {
 };
 
 exports.getNews = async (ticker) => {
-    const response = await axios.get(`${iexSandBoxUrl}/stock/${ticker}/news?token=${iexTestToken}`);
+    const response = await axios.get(`${IEX.url}/stock/${ticker}/news?token=${IEX.token}`);
     const data = response.data;
     console.log(data);
 };

@@ -1,21 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const {prefix, devToken, prodToken} = require('../config.json');
+const {prefix} = require('../config.json');
 const CommandHandler = require('./CommandHandler/CommandHandler.js');
 const TimeHandler = require('./TimeHandler/TimeHandler.js');
 const EmbedHandler = require('./EmbedHandler/EmbedHandler.js');
-const StockModel = require('./StockModel/StockModel.js');
-const env = process.env.NODE_ENV || "development";
-let token = "";
-
-if (env === "production") {
-    token = prodToken;
-} else {
-    token = devToken;
-}
+const Utils = require('./Utils/Utils.js');
+const NODE_ENV = process.env.NODE_ENV || "development";
+const token = Utils.getDiscordTokenByEnvironment();
 
 client.once('ready', () => {
-    console.log('SARA is operational on ' + env + '...');
+    console.log('SARA is operational on ' + NODE_ENV + '...');
     const updateChannel = client.channels.cache.filter(x => x.type === 'text' && x.name === 'updates').first();
     client.setInterval(() => {
         // 10 min alert

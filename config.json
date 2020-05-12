@@ -1,7 +1,7 @@
 {
     "prefix": "!",
-    "iexSandBoxUrl": "https://sandbox.iexapis.com/stable",
-    "iexProdUrl": "https://cloud.iexapis.com/stable",
+    "IEX_CLOUD_SANDBOX_URL": "https://sandbox.iexapis.com/stable",
+    "IEX_CLOUD_PROD_URL": "https://cloud.iexapis.com/stable",
     "timezone": "America/New_York",
     "times": {
         "marketOpen": "09:30:00",

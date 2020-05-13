@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/centr0/sara.svg?branch=master)](https://travis-ci.com/centr0/sara)
+
 # Stock Autonomous Recon Analyst (SARA)
 
 ### What is this repository for? ###
@@ -26,3 +27,11 @@ $DISCORD_PROD_TOKEN - token for actual production bot
 ### Installation
 
 `npm install`
+
+### Tests
+
+`npm test`
+
+### Running
+
+`node src/sara.js`

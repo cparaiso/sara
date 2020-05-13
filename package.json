@@ -3,15 +3,28 @@
     "version": "1.0.0",
     "scripts": {
         "start": "node src/sara.js",
+        "test": "jest",
         "dev": "watch 'npm run start'"
     },
+    "jest": {
+        "verbose": true,
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "**/*.{js,jsx}",
+            "!**/node_modules/**",
+            "!**/vendor/**"
+        ],
+        "coverageDirectory": "./test-coverage"
+    },
     "devDependencies": {
+        "jest": "^26.0.1",
         "watch": "^1.0.2"
     },
     "dependencies": {
         "axios": "^0.19.2",
         "cheerio": "^1.0.0-rc.3",
         "discord.js": "^12.2.0",
-        "puppeteer": "^3.0.2"
+        "puppeteer": "^3.0.2",
+        "rewire": "^5.0.0"
     }
 }

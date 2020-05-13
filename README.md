@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/centr0/sara.svg?branch=master)](https://travis-ci.com/centr0/sara)
 # Stock Autonomous Recon Analyst (SARA)
 
 ### What is this repository for? ###

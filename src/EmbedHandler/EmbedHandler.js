@@ -32,7 +32,7 @@ exports.getNewsMessage = (response) => {
     let msg = ``;
 
     response.forEach(data => {
-        msg += `[${data.headline}](http://${data.url})\n\n`
+        msg += `[${data.headline}](${data.url})\n\n`;
     });
 
     return new Discord.MessageEmbed()

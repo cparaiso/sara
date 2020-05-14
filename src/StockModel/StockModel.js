@@ -5,7 +5,7 @@ const IEX = Utils.getIEXTokenUrlByEnvironment();
 exports.tickerSearch = async (ticker) => {
     const response = await axios.get(`${IEX.url}/stock/${ticker}/quote?token=${IEX.token}`);
     const data = response.data;
-    console.log(data);
+
     return {
         companyName: data.companyName,
         symbol: data.symbol,
@@ -18,7 +18,14 @@ exports.tickerSearch = async (ticker) => {
 };
 
 exports.getNews = async (ticker) => {
-    const response = await axios.get(`${IEX.url}/stock/${ticker}/news?token=${IEX.token}`);
-    const data = response.data;
-    console.log(data);
+    let response = {};
+
+    if (!ticker) {
+        ticker = 'market';
+        response = await axios.get(`${IEX.url}/stock/${ticker}/news?token=${IEX.token}`);
+    } else {
+        response = await axios.get(`${IEX.url}/stock/${ticker}/news/last/5?token=${IEX.token}`);
+    }
+
+    return response.data;
 };

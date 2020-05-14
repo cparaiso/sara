@@ -27,3 +27,16 @@ exports.getTickerSearchMessage = (response) => {
             { name: '52 Week Low:', value: response.week52Low }
         );
 };
+
+exports.getNewsMessage = (response) => {
+    let msg = ``;
+
+    response.forEach(data => {
+        msg += `[${data.headline}](http://${data.url})\n\n`
+    });
+
+    return new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle('Latest News')
+        .setDescription(msg);
+};

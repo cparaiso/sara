@@ -21,5 +21,8 @@ exports.handleCommand = async (command, message, args) => {
     } else if (command === 'q') {
         const response = await StockModel.tickerSearch(args[0]);
         message.channel.send(EmbedHandler.getTickerSearchMessage(response));
+    } else if (command === 'news') {
+        const response = await StockModel.getNews(args[0]);
+        message.channel.send(EmbedHandler.getNewsMessage(response));
     }
 }

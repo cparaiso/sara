@@ -2,7 +2,6 @@ const {timezone, weekdays, times} = require('../../config.json');
 
 exports.isMarketOpen = () => {
     let date = new Date();
-    // console.log(date.toLocaleTimeString('en-US', { hour12: false, timeZone: timezone }));
     return isOpenTime(date) && isOpenDay(date);
 };
 

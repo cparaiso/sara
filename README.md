@@ -32,6 +32,6 @@ $DISCORD_PROD_TOKEN - token for actual production bot
 
 `npm test`
 
-### Running
+### Running the bot
 
 `node src/sara.js`

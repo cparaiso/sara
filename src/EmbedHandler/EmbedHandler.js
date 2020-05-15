@@ -2,21 +2,21 @@ const Discord = require('discord.js');
 
 exports.getMarketOpenMessage = () => {
     return new Discord.MessageEmbed()
-        .setColor('#00e220')
+        .setColor('#30a85f')
         .setTitle('🔔')
-        .setDescription('STOCK MARKET IS OPEN.');
+        .setDescription('STOCK MARKET IS OPEN. GET THAT MONEY...');
 };
 
 exports.getTenToMarketOpenMessage = () => {
     return new Discord.MessageEmbed()
-        .setColor('#00e220')
+        .setColor('#30a85f')
         .setTitle('⏰')
         .setDescription('10 minute countdown until stock market is open.');
 };
 
 exports.getTickerSearchMessage = (response) => {
     return new Discord.MessageEmbed()
-        .setColor('#0099ff')
+        .setColor('#30a85f')
         .setTitle(response.companyName + ' (' + response.symbol.toUpperCase() + ')')
         .setURL(`https://finance.yahoo.com/quote/${response.symbol.toUpperCase()}?p=${response.symbol.toUpperCase()}&.tsrc=fin-srch`)
         .addFields(
@@ -28,15 +28,22 @@ exports.getTickerSearchMessage = (response) => {
         );
 };
 
-exports.getNewsMessage = (response) => {
+exports.getNewsMessage = (response, ticker) => {
     let msg = ``;
+    let title = '';
+
+    if (ticker) {
+        title = `Latest ${ticker.toUpperCase()} News`;
+    } else {
+        title = `Latest Market News`;
+    }
 
     response.forEach(data => {
         msg += `[${data.headline}](${data.url})\n\n`;
     });
 
     return new Discord.MessageEmbed()
-        .setColor('#0099ff')
-        .setTitle('Latest News')
+        .setColor('#30a85f')
+        .setTitle(title)
         .setDescription(msg);
 };

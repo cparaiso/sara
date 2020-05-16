@@ -40,6 +40,15 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+
+    // 'no way bot reply
+    if (message.content.toLowerCase().includes("no way")) {
+        let uEmbed = new Discord.MessageEmbed()
+          .setColor('#30a85f')
+          .setDescription("Way.");
+        message.channel.send({embed: uEmbed});
+      }
+
     // guard
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -48,18 +57,6 @@ client.on('message', message => {
 
     // handle commands
     CommandHandler.handleCommand(command, message, args);
-});
-
-// NO WAY JOSE
-client.on('message', message => {
-    // If the message contains "no way"
-    if (message.content.toLowerCase().includes("no way")) {
-      // Send "Way." to the same channel
-      let uEmbed = new Discord.MessageEmbed()
-        .setColor('#30a85f')
-        .setDescription("Way.");
-      message.channel.send({embed: uEmbed});
-    }
 });
   
 client.login(token);

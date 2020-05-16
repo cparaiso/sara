@@ -40,6 +40,15 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+
+    // 'no way bot reply
+    if (message.content.toLowerCase().includes("no way")) {
+        let uEmbed = new Discord.MessageEmbed()
+          .setColor('#30a85f')
+          .setDescription("Way.");
+        message.channel.send({embed: uEmbed});
+      }
+
     // guard
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -49,5 +58,5 @@ client.on('message', message => {
     // handle commands
     CommandHandler.handleCommand(command, message, args);
 });
-
+  
 client.login(token);

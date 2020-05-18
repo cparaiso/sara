@@ -5,6 +5,7 @@ const CommandHandler = require('./CommandHandler/CommandHandler.js');
 const TimeHandler = require('./TimeHandler/TimeHandler.js');
 const EmbedHandler = require('./EmbedHandler/EmbedHandler.js');
 const StockModel = require('./StockModel/StockModel.js');
+const LevelHandler = require('./LevelHandler/LevelHandler.js');
 const Utils = require('./Utils/Utils.js');
 const NODE_ENV = process.env.NODE_ENV || "development";
 const token = Utils.getDiscordTokenByEnvironment();
@@ -40,6 +41,10 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+    if (!message.author.bot) {
+        // xp rewards
+        LevelHandler.executeXPRewards(message);
+    }
 
     // 'no way bot reply
     if (message.content.toLowerCase().includes("no way")) {

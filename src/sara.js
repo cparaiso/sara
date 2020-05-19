@@ -13,7 +13,7 @@ client.once('ready', () => {
     console.log('SARA is operational on ' + NODE_ENV + '...');
     const updateChannel = client.channels.cache.filter(x => x.type === 'text' && x.name === 'updates').first();
     const newsChannel = client.channels.cache.filter(x => x.type === 'text' && x.name === 'news').first();
-    
+
     client.setInterval(() => {
         // 10 min alert
         if (TimeHandler.isMarketTenTillOpen()) {
@@ -43,14 +43,16 @@ client.on('message', message => {
 
     // 'no way bot reply
     if (message.content.toLowerCase().includes("no way")) {
-        let uEmbed = new Discord.MessageEmbed()
-          .setColor('#30a85f')
-          .setDescription("Way.");
+        const uEmbed = new Discord.MessageEmbed()
+            .setColor('#30a85f')
+            .setDescription("Way.");
         message.channel.send({embed: uEmbed});
-      }
+    }
 
     // guard
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!message.content.startsWith(prefix) || message.author.bot) {
+        return;
+    }
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
@@ -58,5 +60,5 @@ client.on('message', message => {
     // handle commands
     CommandHandler.handleCommand(command, message, args);
 });
-  
+
 client.login(token);

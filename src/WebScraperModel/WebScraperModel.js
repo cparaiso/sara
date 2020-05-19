@@ -1,11 +1,9 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
 const launch = async () => {
     const browser = await puppeteer.launch({
         devtools: false,
-        defaultViewport: { //--window-size in args
+        defaultViewport: { // --window-size in args
             width: 1280,
             height: 882
         },
@@ -25,7 +23,7 @@ const launch = async () => {
             '--disable-canvas-aa',
             '--use-gl=swiftshader',
             '--enable-webgl',
-            '--user-data-dir=./chromeData',
+            '--user-data-dir=./chromeData'
         ]
     });
 
@@ -34,10 +32,9 @@ const launch = async () => {
     // ignore specific resources
     await page.setRequestInterception(true);
     page.on('request', (req) => {
-        if(req.resourceType() == 'stylesheet' || req.resourceType() == 'font' || req.resourceType() == 'image'){
+        if (req.resourceType() == 'stylesheet' || req.resourceType() == 'font' || req.resourceType() == 'image') {
             req.abort();
-        }
-        else {
+        } else {
             req.continue();
         }
     });
@@ -52,11 +49,10 @@ exports.marketCondition = async () => {
     const pup = await launch();
     await pup.page.goto('https://www.benzinga.com/markets', {waitUntil: 'networkidle2'});
 
-    let tickers = await pup.page.evaluate(() => {
-        let marketBlocks = document.querySelectorAll('#market-overview-block > div');
-        let stocks = [];
+    const tickers = await pup.page.evaluate(() => {
+        const marketBlocks = document.querySelectorAll('#market-overview-block > div');
+        const stocks = [];
         marketBlocks.forEach((block) => {
-            let stock = {};
             const ticker = block.querySelector('.market-overview-field-name').innerText;
             const closing = block.querySelector('.market-overview-field-lasttrade').innerText;
             const change = block.querySelector('.market-overview-field-changedec').innerText;
@@ -74,4 +70,4 @@ exports.marketCondition = async () => {
     pup.browser.close();
 
     return tickers;
-}
+};

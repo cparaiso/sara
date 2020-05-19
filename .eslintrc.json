@@ -1,0 +1,36 @@
+{
+    "env": {
+      "browser": false,
+      "es6": true,
+      "node": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "block-spacing": [2, "always"],
+      "brace-style": [2, "1tbs"],
+      "keyword-spacing": [2, {"before": true}],
+      "space-before-blocks": [2, "always"],
+      "indent": [2, 4],
+      "comma-dangle": [2, "never"],
+      "comma-spacing": [2, {"before": false, "after": true}],
+      "comma-style": [2, "last"],
+      "computed-property-spacing": [2, "never"],
+      "func-call-spacing": [2, "never"],
+      "func-name-matching": [2, "always"],
+      "func-style": [2, "expression"],
+      "no-trailing-spaces": [2],
+      "semi": [2],
+      "spaced-comment": [2],
+      "arrow-spacing": [2, { "before": true, "after": true }],
+      "no-const-assign": [2],
+      "no-var": [2],
+      "prefer-const": [2],
+      "no-unused-vars": [2],
+      "no-use-before-define": [2],
+      "yoda": [2],
+      "vars-on-top": [2],
+      "curly": [2, "all"],
+      "default-case-last": [2],
+      "space-infix-ops": [2]
+    }
+  }

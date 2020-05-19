@@ -10,7 +10,7 @@ exports.getDiscordTokenByEnvironment = () => {
 };
 
 exports.getIEXTokenUrlByEnvironment = () => {
-    let iex = {};
+    const iex = {};
     if (NODE_ENV === 'production') {
         iex.url = IEX_CLOUD_PROD_URL;
         iex.token = IEX_CLOUD_PROD_TOKEN;
@@ -20,4 +20,4 @@ exports.getIEXTokenUrlByEnvironment = () => {
     }
 
     return iex;
-}
+};

@@ -1,6 +1,5 @@
 const WebScraper = require('../WebScraperModel/WebScraperModel.js');
 const StockModel = require('../StockModel/StockModel.js');
-const Discord = require('discord.js');
 const EmbedHandler = require('../EmbedHandler/EmbedHandler.js');
 
 exports.handleCommand = async (command, message, args) => {
@@ -13,7 +12,7 @@ exports.handleCommand = async (command, message, args) => {
         // refactor this
         let msg = '```fix\n';
         response.forEach((ticker) => {
-            msg += `${ticker.ticker} ${ticker.closing} ${ticker.change} ${ticker.changePercent}\n`
+            msg += `${ticker.ticker} ${ticker.closing} ${ticker.change} ${ticker.changePercent}\n`;
             msg += '-----------------------\n';
         });
         msg += '```';
@@ -25,4 +24,4 @@ exports.handleCommand = async (command, message, args) => {
         const response = await StockModel.getNews(args[0]);
         message.channel.send(EmbedHandler.getNewsMessage(response, args[0]));
     }
-}
+};

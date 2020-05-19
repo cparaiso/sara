@@ -4,7 +4,8 @@
     "scripts": {
         "start": "node src/sara.js",
         "test": "jest",
-        "dev": "watch 'npm run start'"
+        "dev": "watch 'npm run start'",
+        "lint": "eslint 'src/**/*.js?(x)'"
     },
     "jest": {
         "verbose": true,
@@ -17,6 +18,13 @@
         "coverageDirectory": "./test-coverage"
     },
     "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.0.0",
+        "eslint-config-standard": "^14.1.1",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
         "jest": "^26.0.1",
         "watch": "^1.0.2"
     },

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "start": "node src/sara.js",
-        "test": "jest",
+        "test": "eslint 'src/**/*.js?(x)' && jest",
         "dev": "watch 'npm run start'",
         "lint": "eslint 'src/**/*.js?(x)'"
     },

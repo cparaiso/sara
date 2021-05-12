@@ -24,7 +24,7 @@ exports.getTickerSearchMessage = (response) => {
             { name: 'Change:', value: response.change },
             { name: 'Change %:', value: response.changePercent },
             { name: '52 Week High:', value: response.week52High },
-            { name: '54 Week Low:', value: response.week52Low }
+            { name: '54 Week Loow:', value: response.week52Low }
         );
 };
 

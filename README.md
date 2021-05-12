@@ -24,6 +24,8 @@ $DISCORD_DEV_TOKEN - token for development bot
 
 $DISCORD_PROD_TOKEN - token for actual production bot
 
+moo
+
 ### Installation
 
 `npm install`
